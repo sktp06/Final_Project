@@ -12,25 +12,30 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/login.html', function(req, res) {
+app.get('/login', function(req, res) {
     res.sendFile(__dirname + '/login.html');
 });
 
-app.get('/table.html', function(req, res) {
+app.get('/table', function(req, res) {
     res.sendFile(__dirname + '/table.html');
 });
 
-app.get('/categories.html', function(req, res) {
-    res.sendFile(__dirname + '/categories.html');
-});
-
-app.get('/sign_up.html', function(req, res) {
+app.get('/sign_up', function(req, res) {
     res.sendFile(__dirname + '/sign_up.html');
 });
 
-app.get('/menu.html', function(req, res) {
+app.get('/menu', function(req, res) {
     res.sendFile(__dirname + '/menu.html');
 });
+
+app.get('/cart', function(req, res) {
+    res.sendFile(__dirname + '/cart.html');
+});
+
+app.get('/myOrder', function(req, res) {
+    res.sendFile(__dirname + '/myOrder.html');
+});
+
 
 //running on port 3000
 app.listen(3000);
