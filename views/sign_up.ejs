@@ -2,28 +2,33 @@
 <body>
     <div style="text-align: center;" class="container" >
         <div class="row container">
-                <div  >
-                    <img id="pic" src="/chef.jpg">
+            <div>
+                <img id="pic" src="/chef.jpg">
+            </div>
+            <div >
+                <h1 style="margin-top:20px ;">Create New Account</h1>
+            </div>
+            <div>
+                <% if (messages) { %>
+                    <p><%= messages.error %></p>
+                <% } %>
+                <form action="/sign_up" method="POST">
+                    <label style="color: black; font-weight: bold; margin-top: 15px;" for="email">New Email:</label><br>
+                    <input type="email" id="email" name="email" placeholder="ex. abcd@hotmail.com">
+                    <br>
+                    <label style="color: black; font-weight: bold; margin-top: 15px;"for="password">New Password:</label><br>
+                    <input type="password" id="password" name="password" placeholder="******"> <br>
+                    <button style="margin-top: 15px;" class="btn btn-light" role="button">Submit Form</button> <br>
+                    <a style="margin-top: 15px;" href="/login" class="btn btn-danger" role="button">Already have Account?</a>
+                </form>
+            </div>
+            <!-- <div class="button" style="text-align: center; margin-top: 15px;">
+                <div class="button" style="text-align: center;">
+                    <a href="/login" class="btn btn-success" role="button">Submit Form</a>
+                    <br>
+                    <a style="margin-top: 15px;" href="/login" class="btn btn-danger" role="button">Already have Account?</a>
                 </div>
-                <div >
-                    <h1 style="margin-top:20px ;">Create New Account</h1>
-                </div>
-                <div>
-                    <form action="">
-                        <label style="color: black; margin-top: 15px;" for="email">New Email:</label><br>
-                        <input type="email" id="email" name="email">
-                        <br>
-                        <label style="color: black; margin-top: 15px;"for="password">New Password:</label><br>
-                        <input type="password" id="password" name="password">
-                      </form>
-                </div>
-                <div class="button" style="text-align: center; margin-top: 15px;">
-                    <div class="button" style="text-align: center;">
-                        <a href="/login" class="btn btn-success" role="button">Submit Form</a>
-                        <br>
-                        <a style="margin-top: 15px;" href="/login" class="btn btn-danger" role="button">Already have Account?</a>
-                    </div>
-                </div>
+            </div> -->
         </div>
     </div>
 </body>

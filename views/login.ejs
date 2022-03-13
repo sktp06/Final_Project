@@ -7,19 +7,21 @@
                 </div>
                 <div >
                     <h1>Kitchen Login</h1>
+                    
                 </div>
                 <div>
-                    <form action="">
-                        <label style="color: black;" for="email">Email:</label><br>
-                        <input type="email" id="email" name="email">
+                    <% if (messages) { %>
+                        <p><%= messages.error %></p>
+                        <% } %>
+                    <form action="/login" method="POST">
+                        <label style="color: black; font-weight: bold;" for="email">Email:</label><br>
+                        <input type="email" id="email" name="email" placeholder="ex. abcd@hotmail.com">
                         <br>
-                        <label style="color: black;"for="password">Password:</label><br>
-                        <input type="password" id="password" name="password">
+                        <label style="color: black; font-weight: bold;"for="password">Password:</label><br>
+                        <input type="password" id="password" name="password" placeholder="******"> <br>
+                        <button style="margin-top: 15px;" class="btn btn-light" role="button">SIGN IN</button>
+                        <a href="/sign_up" style="margin-top: 15px;" class="btn btn-light" role="button">SIGN UP</a>
                       </form>
-                </div>
-                <div class="button" style="text-align: center; margin-top: 10px;">
-                    <a href="/sign_up" class="btn btn-light" role="button">Sign Up</a>
-                    <a href="/login" class="btn btn-light" role="button">Sign In</a>
                 </div>
         </div>
     </div>
