@@ -1,8 +1,9 @@
 body {
     padding-top: 50px;
-    background-image: url("bg.gif");
-    background-repeat: no-repeat;
-    background-size: 250%;
+    /* background-image: url("bg.gif");
+    background-repeat: no-repeat;*/
+    background-size: 150%; 
+    background-image: url("bg3.webp");
     margin: 50% auto;
 }
 
@@ -49,3 +50,15 @@ form.example::after {
     display: table;
 }
 
+.food_pic {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 200px;
+    height: auto;
+}
+
+.food {
+    text-align: center;
+    margin-top: 15px;
+}

@@ -28,6 +28,10 @@ app.get('/sign_up.html', function(req, res) {
     res.sendFile(__dirname + '/sign_up.html');
 });
 
+app.get('/menu.html', function(req, res) {
+    res.sendFile(__dirname + '/menu.html');
+});
+
 //running on port 3000
 app.listen(3000);
 console.log('Server is listening on port 3000');
