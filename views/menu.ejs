@@ -2,7 +2,7 @@
 <body style="margin-top: 0; border: 0; padding: 0;">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">The Maple</a>
+        <a class="navbar-brand" href="/">The Maple</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,7 +21,7 @@
               <a class="nav-link" href="#Beverage">Beverage</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/cart">Cart Items</a>
+              <a class="nav-link cart" href="/cart">Cart Items (<span>0</span>)</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/myOrder">My Order</a>
@@ -41,14 +41,16 @@
           <div class="col-lg-4 col-sm-6 col-md-6 food">
               <img class="food_pic" src="/appertizer1.png" alt="Gyoza">
               <h3 class="food_info" >Gyoza</h3>
-              <h4>$3.24</h4>
-              <a href="/cart" class="btn btn-dark" role="button">Add to Cart</a>
+              <h4>$3</h4>
+              <a href="#" class="btn btn-dark add-cart" role="button">Add to Cart</a>
+              <input type="hidden" value="3"/>
           </div>
           <div class="col-lg-4 col-sm-6 col-md-6 food">
             <img class="food_pic" src="/appertizer2.png" alt="French Fries">
             <h3 class="food_info" >French Fries</h3>
             <h4>$2.30</h4>
-            <a href="/cart" class="btn btn-dark" role="button">Add to Cart</a>
+            <a href="#" class="btn btn-dark add-cart" role="button">Add to Cart</a>
+            <input type="hidden" value="2.30"/>
         </div>
       </div>
       <br>
@@ -59,13 +61,15 @@
               <img class="food_pic" src="/main-dish1.png" alt="Spaghetti Carbonara">
               <h3 class="food_info" >Spaghetti Carbonara</h3>
               <h4>$5.32</h4>
-              <a href="/cart" class="btn btn-dark" role="button">Add to Cart</a>
+              <a href="#" class="btn btn-dark add-cart" role="button">Add to Cart</a>
+              <input type="hidden" value="5.32"/>
           </div>
           <div class="col-lg-4 col-sm-6 col-md-6 food">
             <img class="food_pic" src="/main-dish2.png" alt="Ramen">
             <h3 class="food_info" >Ramen</h3>
             <h4>$4.52</h4>
-            <a href="/cart" class="btn btn-dark" role="button">Add to Cart</a>
+            <a href="#" class="btn btn-dark add-cart" role="button">Add to Cart</a>
+            <input type="hidden" value="4.52"/>
         </div>
       </div>
       <br>
@@ -76,13 +80,15 @@
               <img class="food_pic" src="/dessert1.png" alt="Honey Toast">
               <h3 class="food_info" >Honey Toast</h3>
               <h4>$2.12</h4>
-              <a href="/cart" class="btn btn-dark" role="button">Add to Cart</a>
+              <a href="#" class="btn btn-dark add-cart" role="button">Add to Cart</a>
+              <input type="hidden" value="2.12"/>
           </div>
           <div class="col-lg-4 col-sm-6 col-md-6 food">
             <img class="food_pic" src="/dessert2.png" alt="Pudding">
             <h3 class="food_info" >Pudding</h3>
             <h4>$2.23</h4>
-            <a href="/cart" class="btn btn-dark" role="button">Add to Cart</a>
+            <a href="#" class="btn btn-dark add-cart" role="button">Add to Cart</a>
+            <input type="hidden" value="2.23"/>
         </div>
       </div>
       <br>
@@ -93,19 +99,22 @@
               <img class="food_pic" src="/beverage1.png" alt="Green Tea">
               <h3 class="food_info" >Green Tea</h3>
               <h4>$2.00</h4>
-              <a href="/cart" class="btn btn-dark" role="button">Add to Cart</a>
+              <a href="#" class="btn btn-dark add-cart" role="button">Add to Cart</a>
+              <input type="hidden" value="2.00"/>
           </div>
           <div class="col-lg-4 col-sm-6 col-md-6 food">
             <img class="food_pic" src="/beverage2.png" alt="Cola">
             <h3 class="food_info" >Cola</h3>
             <h4>$1.23</h4>
-            <a href="/cart" class="btn btn-dark" role="button">Add to Cart</a>
+            <a href="#" class="btn btn-dark add-cart" role="button">Add to Cart</a>
+            <input type="hidden" value="1.23"/>
         </div>
         <div class="col-lg-4 col-sm-6 col-md-6 food">
           <img class="food_pic" src="/beverage3.png" alt="Beer">
           <h3 class="food_info" >Beer</h3>
           <h4>$3.25</h4>
-          <a href="/cart" class="btn btn-dark" role="button">Add to Cart</a>
+          <a href="#" class="btn btn-dark add-cart" role="button">Add to Cart</a>
+          <input type="hidden" value="3.25"/>
       </div>
       </div>
   
@@ -126,6 +135,181 @@
         }
     }
 }
+
+let carts = document.querySelectorAll('.add-cart');
+
+let products = [
+    {
+        name: 'Gyoza',
+        tag: 'gyoza',
+        price: 3,
+        inCart: 0
+    },
+    {
+        name: 'French Fries',
+        tag: 'frenchFries',
+        price: 2.30,
+        inCart: 0
+    },
+    {
+        name: 'Spaghetti Carbonara',
+        tag: 'spagetti',
+        price: 5.32,
+        inCart: 0
+    },
+    {
+        name: 'Ramen',
+        tag: 'ramen',
+        price: 4.52,
+        inCart: 0
+    },
+    {
+        name: 'Honey Toast',
+        tag: 'honeyToast',
+        price: 2.12,
+        inCart: 0
+    },
+    {
+        name: 'Pudding',
+        tag: 'pudding',
+        price: 2.23,
+        inCart: 0
+    },
+    {
+        name: 'Green Tea',
+        tag: 'greenTea',
+        price: 2.00,
+        inCart: 0
+    },
+    {
+        name: 'Cola',
+        tag: 'cola',
+        price: 1.23,
+        inCart: 0
+    },
+    {
+        name: 'Beer',
+        tag: 'beer',
+        price: 3.25,
+        inCart: 0
+    },
+]
+
+for (let i=0; i < carts.length; i++) {
+    carts[i].addEventListener('click', () => {
+        console.log("added to cart");
+        cartNumbers(products[i]);
+        totalCost(products[i])
+    })
+}
+
+function onLoadCartNumbers() {
+  let productNumbers = localStorage.getItem('cartNumbers');
+
+  if(productNumbers) {
+    document.querySelector('.cart span').textContent = productNumbers;
+  }
+}
+
+function cartNumbers(product) {
+  console.log("The product clicked is", product);
+    let productNumbers = localStorage.getItem('cartNumbers');
+
+    productNumbers = parseInt(productNumbers);
+
+    if( productNumbers ) {
+        localStorage.setItem('cartNumbers', productNumbers + 1);
+        document.querySelector('.cart span').textContent = productNumbers +1;
+    } else {
+        localStorage.setItem('cartNumbers', 1);
+        document.querySelector('.cart span').textContent = 1;
+    }
+    setItems(product);
+}
+
+function setItems(product) {
+  let cartItems = localStorage.getItem('productsInCart');
+  cartItems = JSON.parse(cartItems);
+  // console.log("My cartItems are", cartItems);
+
+  if(cartItems != null) {
+
+    if(cartItems[product.tag] == undefined) {
+      cartItems = {
+        ...cartItems,
+        [product.tag]: product
+      }
+    }
+    cartItems[product.tag].inCart += 1;
+  } else {
+    product.inCart = 1;
+    cartItems = {
+      [product.tag]: product
+    }
+  }
+
+  localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+
+}
+
+function totalCost(product) {
+  let cartCost = localStorage.getItem('totalCost');
+  // console.log("The product price is " + cartCost);
+
+
+  console.log("My cartCost is", cartCost);
+  console.log(typeof cartCost);
+
+  if(cartCost != null) {
+    cartCost = parseInt(cartCost);
+    localStorage.setItem("totalCost", cartCost + product.price);
+  } else {
+    localStorage.setItem("totalCost", product.price);
+  }
+}
+
+// function displayCart() {
+//   let cartItems = localStorage.getItem("productInCart");
+//   cartItems = JSON.parse(cartItems);
+//   let productContainer = document.querySelector(".products-container");
+
+//   console.log(cartItems);
+//   if( cartItems && productContainer) {
+//     productContainer.innerHTML = '';
+//     Object.values(cartItems).map(item => {
+//       productContainer.innerHTML += `
+//       <div class="product">
+//         <ion-icon name="close-circle"></ion-icon>
+//         <span>${item.name}</span> 
+//       </div>
+//       <div class="price">${item.price}</div>
+//       <div class="quantity">
+//           <ion-icon class="decrease"
+//           name="arrow-dropleft-circle"></ion-icon>
+//           <span>${item.inCart}</span>
+//           <ion-icon class="increase"
+//           // name="arrow-dropright-circle"></ion-icon>
+//       </div>
+//       <div class="total">
+//         ${item.inCart * item.price}
+//       </div>
+//       `
+//     });
+
+//     productContainer.innerHTML += `
+//     <div class>="basketTotalContainer">
+//         <h4 class="basketTotalTitle">
+//             Basket Total
+//         </h4>
+//         <h4 class="basketTotal">
+//           $${cartCost},00
+//         </h4>
+//     `
+//   }
+// }
+onLoadCartNumbers();
   </script>
+  <!-- <script src="https://unpkg.com/ionicons@4.5.10.0/dist/ionicons.js"></script> -->
+  <!-- <script src="/cart.js"></script> -->
   </body>
-  </html>
+  
