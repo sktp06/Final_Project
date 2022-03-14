@@ -33,13 +33,13 @@ jobs:
         with:
           context: .
           push: true
-          tags: sktp03/final_project:latest
+          tags: sktp03/234-project-2-main:latest
       -
         name: prepare the docker-compose run
         run: |
-              mkdir final_project
-              cp docker-compose.yml final_project/docker-compose.yml
-              cd final_project
+              mkdir 234-project-2-main
+              cp docker-compose.yml 234-project-2-main/docker-compose.yml
+              cd 234-project-2-main
               docker-compose -H ${{ secrets.HOST_SERVER  }} down
               docker-compose -H ${{ secrets.HOST_SERVER  }} pull
               docker-compose -H ${{ secrets.HOST_SERVER  }} up -d
