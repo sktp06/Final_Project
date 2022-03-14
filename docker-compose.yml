@@ -1,8 +1,8 @@
-version: '3.3'
+version: '3'
 services:
   app:
     container_name: finaldeploy-main
     restart: always
     image:  sktp03/234-project-2-main:latest
     ports:
-      - "8071:3000"
+      - "8150:3000"
