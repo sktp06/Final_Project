@@ -75,6 +75,10 @@ app.get('/orderLists', function(req, res) {
     res.render('orderLists');
 });
 
+app.get('/kitchen', function(req, res) {
+  res.render('kitchen');
+});
+
 app.post(
     "/login",
     checkNotAuthenticated,
